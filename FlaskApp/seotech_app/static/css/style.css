@@ -63,7 +63,7 @@ body {
 .hero_area {
   height: 98vh;
   position: relative;
-  background-image: url(../images/hero-bg.png);
+  background-image: url("{{ url_for('static', filename='images/hero-bg.png') }}");
   background-size: cover;
   background-position: bottom;
 }
@@ -71,7 +71,7 @@ body {
 .sub_page .hero_area {
   height: auto;
   background: none;
-  background-color: #041858;
+  background-color: #ffffff;
 }
 
 .sub_page .footer_bg {
@@ -120,7 +120,7 @@ a:focus {
 }
 
 .custom_nav-container .nav_search-btn {
-  background-image: url(../images/search-icon.png);
+  background-image: url("{{ url_for('static', filename='images/search-icon.png)}}");
   background-size: 22px;
   background-repeat: no-repeat;
   background-position-y: 7px;
@@ -334,11 +334,11 @@ a:focus {
 }
 
 .slider_section .carousel_btn-container .carousel-control-prev {
-  background-image: url(../images/left-angle.png);
+  background-image: url("{{ url_for('static', filename='images/left-angle.png)}}");
 }
 
 .slider_section .carousel_btn-container .carousel-control-next {
-  background-image: url(../images/right-angle.png);
+  background-image:url("{{ url_for('static', filename='images/right-angle.png)}}");
   -webkit-transform: translateY(-10px);
           transform: translateY(-10px);
 }
@@ -900,5 +900,11 @@ a:focus {
 
 .footer_section a {
   color: #ffffff;
+}
+.footer_bg {
+  background-image: url(../images/footer-bg.png);
+  background-size: cover;
+  background-position: right top;
+  padding-top: 250px;
 }
 /*# sourceMappingURL=style.css.map */

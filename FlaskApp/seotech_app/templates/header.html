@@ -1,53 +1,49 @@
+<!-- header section strats -->
+<header class="header_section">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg custom_nav-container ">
+      <a class="navbar-brand" href="{{ url_for('main.home') }}">
+        <span>
+          Seotech
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="s-1"> </span>
+        <span class="s-2"> </span>
+        <span class="s-3"> </span>
+      </button>
 
-{%block header%}
-<div class="hero_area">
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+          <ul class="navbar-nav  ">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ url_for('main.home') }}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('main.about') }}"> About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('main.service') }}"> Services </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contactLink">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="quote_btn-container ">
+          <a href="">
+            <img src="{{ url_for('static', filename='images/call.png') }}" alt="">
+
             <span>
-              Seotech
+              Call : + 01 1234567890
             </span>
           </a>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="s-1"> </span>
-            <span class="s-2"> </span>
-            <span class="s-3"> </span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
-              <ul class="navbar-nav  ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html"> About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="service.html"> Services </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#contactLink">Contact Us</a>
-                </li>
-              </ul>
-            </div>
-            <div class="quote_btn-container ">
-              <a href="">
-                <img src="images/call.png" alt="">
-                <span>
-                  Call : + 01 1234567890
-                </span>
-              </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-              </form>
-            </div>
-          </div>
-        </nav>
+          <form class="form-inline">
+            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+          </form>
+        </div>
       </div>
-    </header>
-    {%endblock%}
-    
+    </nav>
+  </div>
+</header>
+<!-- header section ends -->
