@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block content %}
+
+<div id="sub_page" class="hero_area">
+    {% include 'header.html' %}
+</div>
+
+{% include "service_section.html" %}
+
+<div class="footer_bg">
+  {% include 'contact.html' %} 
+  {% include 'info.html' %} 
+  {% include'footer.html'
+  %}
+</div>
+
+{% endblock %}

@@ -8,7 +8,7 @@ db = PyMongo(app)
 def check_connection():
     return db.cx.server_info()
 
-from seotech_app.frontend.views import main
+from seotech_app.content.frontend.views import main
 app.register_blueprint(main)
 
 if __name__ == "__main__":
