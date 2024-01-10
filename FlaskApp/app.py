@@ -1,4 +1,4 @@
-from seotech_app.init import app
+from seotech_app.__init__ import app
 
 
 app.run(debug=True)
