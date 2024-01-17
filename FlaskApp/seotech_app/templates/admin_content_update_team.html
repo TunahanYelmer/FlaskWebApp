@@ -1,0 +1,25 @@
+{% extends "admin_base.html" %} {% block content %}
+<section class="admin-section update-section">
+  <div class="admin-container">
+    <div class="admin-col">
+      <div class="admin-div">
+        <h2 class="admin-h2">Edit Team Section</h2>
+
+        <form
+          action="{{ url_for('admin_.admin_content_update_team') }}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          {{ form.hidden_tag() }} {{ form.name.label }} {{ form.name() }} {{
+          form.description.label }} {{ form.description() }} {{ form.image.label
+          }} {{ form.image() }} {{ form.link_fb.label }} {{ form.link_fb() }} {{
+          form.link_tw.label }} {{ form.link_tw() }} {{ form.link_linkedin.label
+          }} {{ form.link_linkedin() }} {{ form.link_insta.label }} {{
+          form.link_insta() }}
+          <button class="admin-button" type="submit">Update Team</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

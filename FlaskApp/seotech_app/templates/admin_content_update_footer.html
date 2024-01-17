@@ -1,0 +1,25 @@
+{% extends "admin_base.html" %} {% block content %}
+<section class="admin-section update-section">
+  <div class="admin-container">
+    <div class="admin-col">
+      <div class="admin-div">
+        <h2 class="admin-h2">Edit Footer Section</h2>
+
+        <form
+          action="{{ url_for('admin_.admin_content_update_footer') }}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          {{ form.hidden_tag() }} {{ form.title.label }} {{ form.title() }} {{
+          form.description.label }} {{ form.description() }} {{
+          form.link_facebook.label }} {{ form.link_facebook() }} {{
+          form.link_twitter.label }} {{ form.link_twitter() }} {{
+          form.link_linkedin.label }} {{ form.link_linkedin() }} {{
+          form.link_youtube.label }} {{ form.link_youtube() }}
+          <button class="admin-button" type="submit">Update Footer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

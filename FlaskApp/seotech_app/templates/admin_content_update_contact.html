@@ -1,0 +1,23 @@
+{% extends "admin_base.html" %} {% block content %}
+<section class="admin-section update-section">
+  <div class="admin-container">
+    <div class="admin-col">
+      <div class="admin-div">
+        <h2 class="admin-h2">Edit Contact Section</h2>
+
+        <form
+          action="{{ url_for('admin_.admin_content_update_contact') }}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          {{ form.hidden_tag() }} {{ form.telephone.label }} {{ form.telephone()
+          }} {{ form.email.label }} {{ form.email() }}
+          <button class="admin-contact-button" type="submit">
+            Update Contact
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

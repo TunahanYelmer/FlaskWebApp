@@ -1,0 +1,154 @@
+{% extends "admin_base.html" %} {% block content %}
+<style>
+  .admin-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+
+  .admin-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .admin-div {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .admin-h2,
+  .admin-h3 {
+    color: #333;
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  form input,
+  form textarea,
+  form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  form button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  form button:hover {
+    background-color: #0056b3;
+  }
+</style>
+<section class="admin-section">
+  <div class="admin-container">
+    <div class="admin-col">
+      <div class="admin-div">
+        <h2 class="admin-h2">Edit Website Sections</h2>
+
+        <!-- Edit Slider Section -->
+        <h3 class="admin-h3">Slider</h3>
+
+        <form
+          action="{{ url_for('admin_.admin_content') }}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          {{ slider_form.hidden_tag() }} {{ slider_form.title.label }} {{
+          slider_form.title() }} {{ slider_form.description.label }} {{
+          slider_form.description() }} {{ slider_form.image.label }} {{
+          slider_form.image() }}
+          <button class="admin-button" type="submit">Update Slide</button>
+        </form>
+
+        <!-- Edit About Section -->
+        <h3 class="admin-h3">About</h3>
+        <form
+          action="{{ url_for('admin_.admin_content') }}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          {{ about_form.hidden_tag() }} {{ about_form.title.label }} {{
+          about_form.title() }} {{ about_form.description.label }} {{
+          about_form.description() }} {{ about_form.image.label }} {{
+          about_form.image() }}
+          <button class="admin-button" type="submit">Update About</button>
+        </form>
+        <!-- Edit Team Section -->
+        <h3 class="admin-h3">Team</h3>
+        <form
+          action="{{ url_for('admin_.admin_content') }}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          {{ team_form.hidden_tag() }} {{ team_form.name.label }} {{
+          team_form.name() }} {{ team_form.description.label }} {{
+          team_form.description() }} {{ team_form.image.label }} {{
+          team_form.image() }} {{ team_form.link_fb.label
+          }}{{team_form.link_fb()}}
+          {{team_form.link_tw.label}}{{team_form.link_tw()}}
+          {{team_form.link_linkedin.label}}{{team_form.link_linkedin()}}
+          {{team_form.link_insta.label}} {{team_form.link_insta()}}
+          <button class="admin-button" type="submit">Update Team</button>
+        </form>
+        <!-- Edit Contact Section -->
+        <h3 class="admin-h3">Contact</h3>
+        <form
+          action="{{ url_for('admin_.admin_content') }}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          {{ contact_form.hidden_tag() }} {{ contact_form.telephone.label }} {{
+          contact_form.telephone() }} {{ contact_form.email.label }} {{
+          contact_form.email() }}
+          <button class "admin-contact-button" type="submit">Update Contact</button>
+        </form>
+        <!-- Edit Services Section -->
+        <h3 class="admin-h3">Services</h3>
+
+        <form
+          action="{{ url_for('admin_.admin_content') }}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          {{ service_form.hidden_tag() }} {{ service_form.title.label }} {{
+          service_form.title() }} {{ service_form.description.label }} {{
+          service_form.description() }} {{ service_form.image.label }} {{
+          service_form.image() }}
+          <button class="admin-button" type="submit">Update Service</button>
+        </form>
+
+        <!-- Edit Footer Section -->
+        <h3 class="admin-h3">Footer</h3>
+        <form
+          action="{{ url_for('admin_.admin_content') }}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          {{ footer_form.hidden_tag() }} {{ footer_form.title.label }} {{
+          footer_form.title() }} {{ footer_form.description.label }} {{
+          footer_form.description() }} {{footer_form.link_facebook.label()}}
+          {{footer_form.link_facebook()}} {{footer_form.link_twitter.label()}}
+          {{footer_form.link_twitter()}}{{footer_form.link_linkedin.label()}}
+          {{footer_form.link_linkedin()}}{{footer_form.link_youtube.label()}}
+          {{footer_form.link_youtube()}}
+
+          <button class="admin-button" type="submit">Update Footer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

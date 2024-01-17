@@ -1,0 +1,321 @@
+{%extends 'admin_base.html'%} {%block content %}
+<style>
+
+</style>
+<!-- Slider Table -->
+<div class="admin-div slider-div">
+  <h2 class="admin-h2">Sliders</h2>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Contact_Link</th>
+        <th>Image</th>
+        <th>Quote_Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for slider in slider_data %}
+      <tr>
+        <td>{{ slider.title }}</td>
+        <td>{{ slider.description }}</td>
+        <td>{{ slider.contact_link }}</td>
+        <td>{{ slider.image }}</td>
+        <td>{{ slider.quote_link }}</td>
+        <td>
+          <form
+            action="{{ url_for('admin_.admin_delete_slider', id=slider.id) }}"
+            method="POST"
+          >
+            <button class="admin-button delete-button" type="submit">
+              Delete
+            </button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+      <form action="{{ url_for('admin_.admin_content_update_slider') }}" method="POST">
+        <button class="admin-button add-button" type="submit">Add</button>
+      </form>
+    </tbody>
+  </table>
+</div>
+
+<!-- About Table -->
+<div class="admin-div service-div">
+  <h2 class="admin-h2">Service</h2>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Read</th>
+        <th>Service_Title</th>
+        <th>Service_Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for service in service_data %}
+      <tr>
+        <td>{{ service.title }}</td>
+        <td>{{ service.description }}</td>
+        <td>{{ service.image }}</td>
+        <td>{{ service.read }}</td>
+        <td>{{ service.service_title}}</td>
+        <td>{{ service.service_description }}</td>
+        <td>
+          <form
+            action="{{ url_for('admin_.admin_delete_service', id=service.id) }}"
+            method="POST"
+          >
+            <button class="admin-button delete-button" type="submit">
+              Delete
+            </button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+      <form action="{{ url_for('admin_.admin_content_update_service') }}" method="POST">
+        <button class="admin-button add-button" type="submit">Add</button>
+      </form>
+    </tbody>
+  </table>
+</div>
+<div class="admin-div about-div">
+  <h2 class="admin-h2">About</h2>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Read</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for about in about_data %}
+      <tr>
+        <td>{{ about.title }}</td>
+        <td>{{ about.description }}</td>
+        <td>{{ about.image }}</td>
+        <td>{{ about.read }}</td>
+
+        <td>
+          <form
+            action="{{ url_for('admin_.admin_delete_about', id=about.id) }}"
+            method="POST"
+          >
+            <button class="admin-button delete-button" type="submit">
+              Delete
+            </button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+      <form action="{{ url_for('admin_.admin_content_update_about') }}" method="POST">
+        <button class="admin-button add-button" type="submit">Add</button>
+      </form>
+    </tbody>
+  </table>
+</div>
+<div class="admin-div work-div">
+  <h2 class="admin-h2">Work</h2>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Read</th>
+        <th>Service_Title</th>
+        <th>Service_Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for work in work_data %}
+      <tr>
+        <td>{{ work.title }}</td>
+        <td>{{ work.description }}</td>
+        <td>{{ work.image }}</td>
+        <td>{{ work.read }}</td>
+        <td>{{ work.service_title}}</td>
+        <td>{{ work.service_description }}</td>
+
+        <td>
+          <form
+            action="{{ url_for('admin_.admin_delete_work', id=work.id) }}"
+            method="POST"
+          >
+            <button class="admin-button delete-button" type="submit">
+              Delete
+            </button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+      <form action="{{ url_for('admin_.admin_content_update_work') }}" method="POST">
+        <button class="admin-button add-button" type="submit">Add</button>
+      </form>
+    </tbody>
+  </table>
+</div>
+<div class="admin-div team-div">
+  <h2 class="admin-h2">Team</h2>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Link_Fb</th>
+        <th>Link_Tw</th>
+        <th>Link_linkedin</th>
+        <th>Link_İnsta</th>
+        <th>Image</th>
+        <th>Read</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for team in team_data %}
+      <tr>
+        <td>{{ team.name }}</td>
+        <td>{{ team.description }}</td>
+        <td>{{ team.image }}</td>
+        <td>{{ team.link_fb }}</td>
+        <td>{{ team.link_tw }}</td>
+        <td>{{ team.link_linkedin }}</td>
+        <td>{{ team.link_insta }}</td>
+
+        <td>
+          <form
+            action="{{ url_for('admin_.admin_delete_team', id=team.id) }}"
+            method="POST"
+          >
+            <button class="admin-button delete-button" type="submit">
+              Delete
+            </button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+      <form action="{{ url_for('admin_.admin_content_update_team') }}" method="POST">
+        <button class="admin-button add-button" type="submit">Add</button>
+      </form>
+    </tbody>
+  </table>
+</div>
+<div class="admin-div client-div">
+  <h2 class="admin-h2">Client</h2>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for client in client_data %}
+      <tr>
+        <td>{{ client.name }}</td>
+        <td>{{ client.description }}</td>
+        <td>{{ client.image }}</td>
+
+        <td>
+          <form
+            action="{{ url_for('admin_.admin_delete_client', id=client.id) }}"
+            method="POST"
+          >
+            <button class="admin-button delete-button" type="submit">
+              Delete
+            </button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+      <form action="{{ url_for('admin_.admin_content_update_client') }}" method="POST">
+        <button class="admin-button add-button" type="submit">Add</button>
+      </form>
+    </tbody>
+  </table>
+</div>
+<div class="admin-div contact-div">
+  <h2 class="admin-h2">Contact</h2>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Telephone</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for contact in contact_data %}
+      <tr>
+        <td>{{ contact.telephone }}</td>
+        <td>{{ contact.email }}</td>
+
+        <td>
+          <form
+            action="{{ url_for('admin_.admin_delete_contact', id=contact.id) }}" method="POST">
+            <button class="admin-button delete-button" type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+      <form action="{{ url_for('admin_.admin_content_update_contact') }}" method="POST">
+        <button class="admin-button add-button" type="submit">Add</button>
+      </form>
+  </table>
+</div>
+<div class="admin-div footer-div">
+  <h2 class="admin-h2">Footer</h2>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Link_Facebook</th>
+        <th>Link_Twitter</th>
+        <th>Link_Linkedin</th>
+        <th>Link_Youtebe</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for footer in footer_data %}
+      <tr>
+        <td>{{ footer.title }}</td>
+        <td>{{ footer.description }}</td>
+        <td>{{ footer.link_facebook }}</td>
+        <td>{{ footer.link_twitter }}</td>
+        <td>{{ footer.link_linkedin }}</td>
+        <td>{{ footer.link_youtube }}</td>
+
+        <td>
+          <form
+            action="{{ url_for('admin_.admin_delete_footer', id=footer._id) }}"
+            method="POST"
+          >
+            <button class="admin-button delete-button" type="submit">
+              Delete
+            </button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+      <form action="{{ url_for('admin_.admin_content_update_footer') }}" method="POST">
+        <button class="admin-button add-button" type="submit">Add</button>
+      </form>
+    </tbody>
+  </table>
+</div>
+<!-- Repeat the above div for each of your other classes: Service, Work, Team, Client, Contact, Footer -->
+<!-- Just replace 'about' with the class name in the div class and the h2 text, and 'edit_about' and 'delete_about' with the actual routes -->
+{%endblock%}

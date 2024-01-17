@@ -1,15 +1,240 @@
-{% extends "base.html" %} {% block content %}
+{%extends 'base.html'%} 
+{%block content%}
+<div class="about_route">
+  <header class="header_section">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="{{ url_for('main.home') }}">
+          <span> Seotech </span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="s-1"> </span>
+          <span class="s-2"> </span>
+          <span class="s-3"> </span>
+        </button>
 
-<div id="sub_page" class="hero_area">
-    {% include 'header.html' %}
+        <div class="collapse navbar-collapse justify-content-center flex-lg-row" id="navbarSupportedContent">
+          <div
+            class="d-flex mx-auto flex-column flex-lg-row align-items-center"
+          >
+          <ul class="navbar-nav">
+            <li class="nav-item {{ 'active' if request.endpoint == 'main.home' else '' }}">
+                <a class="nav-link" href="{{ url_for('main.home') }}">Home</a>
+            </li>
+            <li class="nav-item {{ 'active' if request.endpoint == 'main.about' else '' }}">
+                <a class="nav-link" href="{{ url_for('main.about') }}">About</a>
+            </li>
+            <li class="nav-item {{ 'active' if request.endpoint == 'main.service' else '' }}">
+                <a class="nav-link" href="{{ url_for('main.service') }}">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contactLink">Contact Us</a>
+            </li>
+        </ul>
+          </div>
+          <div class="quote_btn-container">
+            <a href="">
+              <img
+                src="{{ url_for('static', filename='images/call.png') }}"
+                alt=""
+              />
+
+              <span> Call : + {{contact_data[0].telephone}} </span>
+            </a>
+            <form class="form-inline">
+              <button
+                class="btn my-2 my-sm-0 nav_search-btn"
+                type="submit"
+              ></button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+    <!-- about section -->
+
+    <section class="about_section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="img-box">
+              <img
+                src="{{url_for('static', filename='/images/about-img.png')}}"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="detail-box">
+              <div class="heading_container">
+                <h2>{{about_data[0].title}}</h2>
+              </div>
+              <p>
+               {{about_data[0].description}}
+              </p>
+              <a href="{{url_for('main.about')}}"> Read More </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end about section -->
+  </div>
 </div>
-
-{% include "about_section.html" %}
-
 <div class="footer_bg">
-  {% include 'contact.html' %} 
-  {% include 'info.html' %} {% include'footer.html'
-  %}
+  <section class="contact_section layout_padding" id="contactLink">
+    <div class="contact_section">
+      <div class="container">
+        <div class="heading_container">
+          <h2>Get In touch</h2>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <form method="POST" action="{{ url_for('main.home') }}">
+              {{form.hidden_tag()}}
+              <div class"d-flex justify-content-center">
+                <div class="form-row">
+                  <div class="form-group col-md-6">{{form.name}}</div>
+                  <div class="form-group col-md-6">{{form.email}}</div>
+                </div>
+              <div class="form-row">
+                <div class="form-group col">
+                  {{form.subject}}
+                </div>
+              </div>
+              <div class="form-group">
+                {{form.message}}
+              </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="info_section layout_padding2">
+    <div class="info_section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="info_logo">
+              <h3>Seotech</h3>
+              <p>
+                {{footer_data[0].description}}
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="info_links">
+              <h4>BASIC LINKS</h4>
+              <ul class="  ">
+                <li class="active">
+                  <a class="" href="{{url_for('main.home')}}"
+                    >Home <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <li class="">
+                  <a class="" href="{{url_for('main.about')}}"> About</a>
+                </li>
+                <li class="">
+                  <a class="" href="{{url_for('main.service')}}"> Services </a>
+                </li>
+                <li class="">
+                  <a class="" href="#contactLink">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="info_contact">
+              <h4>CONTACT DETAILS</h4>
+              <a href="">
+                <div class="img-box">
+                  <img
+                    src="{{ url_for('static', filename='images/telephone-white.png') }}"
+                    width="12px"
+                    alt=""
+                  />
+                </div>
+                <p>{{contact_data[0].telephone}}</p>
+              </a>
+              <a href="">
+                <div class="img-box">
+                  <img
+                    src="{{ url_for('static', filename='images/envelope-white.png') }}"
+                    width="18px"
+                    alt=""
+                  />
+                </div>
+                <p>{{contact_data[0].email}}</p>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="info_form">
+              <h4>NEWSLETTER</h4>
+              <form method="POST" action="{{ url_for('main.home') }}">
+                {{form.hidden_tag()}}
+                <div class="d-flex justify-content-center">
+                  {{newsform.email}}
+                </div>
+                <button>Subscribe</button>
+              </form>
+              <div class="social_box">
+                <a href="https://{{ footer_data[0].link_facebook }}">
+                  <img
+                    src="{{ url_for('static', filename='images/info-fb.png') }}"
+                    alt="{{footer_data[0].link_facebook}}"
+                  />
+                </a>
+                <a href="https://{{footer_data[0].link_youtube}}">
+                  <img
+                    src="{{ url_for('static', filename='images/info-twitter.png') }}"
+                    alt="{{footer_data[0].link_youtube}}"
+                  />
+                </a>
+                <a href="https://{{footer_data[0].link_youtube}}">
+                  <img
+                    src="{{ url_for('static', filename='images/info-linkedin.png') }}"
+                    alt="{{footer_data[0].link_youtube}}"
+                  />
+                </a>
+                <a href="https://{{footer_data[0].link_youtube}}">
+                  <img
+                    src="{{ url_for('static', filename='images/info-youtube.png') }}"
+                    alt="{{footer_data[0].link_youtube}}"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container-fluid footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </section>
 </div>
-
-{% endblock %}
+{%endblock%}
+ 

@@ -1,0 +1,35 @@
+{% extends "admin_base.html" %} {% block content %}
+
+
+<section class="admin-register-section">
+  <div class="admin-container">
+    <div class="admin-col">
+      <div class="admin-div">
+        <h2 class="admin-h2">Update User</h2>
+        <form action="{{ url_for('admin_.admin_update_user', id=user_id, ) }}" method="post">
+         {{form.hidden_tag()}}
+        <div class="admin-form">
+         {{ form.email.label }}
+         {{ form.email(class="admin-input", placeholder=user.email) }}
+        </div>
+        <div class="admin-form">
+          {{ form.username.label }}
+          {{ form.username(class="admin-input", placeholder=user.username) }}
+         </div>
+         <div class="admin-form">
+          {{ form.name.label }}
+          {{ form.name(class="admin-input", placeholder=user.name) }}
+         </div>
+         <div class="admin-checkbox">
+            {{ form.admin.label }}
+            {{form.admin}}
+        </div>
+        <button type="submit" class="admin-button" action="{{url_for('admin_.admin_users')}}" >Update</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+     

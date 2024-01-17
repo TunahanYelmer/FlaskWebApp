@@ -1,0 +1,90 @@
+<!-- Admin header section starts -->
+
+<header class="admin_header_section">
+  <div class="admin-header">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a
+          class="navbar-brand"
+          href="{{ url_for('admin_.admin_content_update') }}"
+        >
+          <span> Seotech </span>
+        </a>
+
+        <!-- Check if user is logged in -->
+        <span class="nickname-label"></span>
+        <!-- Display nickname -->
+        <a href="{{ url_for('admin_.admin_logout') }}" class="logout-button"
+          >Logout</a
+        >
+        <!-- Display logout button -->
+
+        <a href="{{ url_for('admin_.admin_login') }}" class="login-button"
+          >Login</a
+        >
+        <!-- Display login button -->
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="s-1"> </span>
+          <span class="s-2"> </span>
+          <span class="s-3"> </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div
+            class="d-flex mx-auto flex-column flex-lg-row align-items-center"
+          >
+            <ul class="navbar-nav">
+              <li
+                class="nav-item {% if 'admin_content_update' in request.endpoint %}active{% endif %}"
+              >
+                <a
+                  class="nav-link"
+                  href="{{ url_for('admin_.admin_content_update') }}"
+                >
+                  Content
+                </a>
+              </li>
+              <li
+                class="nav-item {% if 'admin_users' in request.endpoint %}active{% endif %}"
+              >
+                <a class="nav-link" href="{{ url_for('admin_.admin_users') }}">
+                  Users
+                </a>
+              </li>
+              <li
+                class="nav-item {% if 'admin_messages' in request.endpoint %}active{% endif %}"
+              >
+                <a
+                  class="nav-link"
+                  href="{{ url_for('admin_.admin_messages') }}"
+                >
+                  Messages
+                </a>
+              </li>
+              <li
+                class="nav-item {% if 'admin_newsfeed' in request.endpoint %}active{% endif %}"
+              >
+                <a
+                  class="nav-link"
+                  href="{{ url_for('admin_.admin_newsfeed') }}"
+                >
+                  News
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- Admin header section ends -->

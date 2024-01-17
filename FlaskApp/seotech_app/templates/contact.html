@@ -12,23 +12,23 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-md-8 mx-auto">
-          <form>
+          <form action="{{url_for('main.about')}}" method="POST">
             <div class="form-row">
               <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="inputName4" placeholder="Name ">
+               {{form.name}}
               </div>
               <div class="form-group col-md-6">
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email id">
+              {{form.email}}
               </div>
 
             </div>
             <div class="form-row">
               <div class="form-group col">
-                <input type="text" class="form-control" id="inputSubject4" placeholder="Subject">
+                {{form.subject}}
               </div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="inputMessage" placeholder="Message">
+             {{form.email}}
             </div>
             <div class="d-flex justify-content-center">
               <button type="submit" class="">Send</button>

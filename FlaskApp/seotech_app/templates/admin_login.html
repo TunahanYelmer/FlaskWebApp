@@ -1,0 +1,40 @@
+{% extends "admin_base.html" %} {% block content %}
+
+
+<section class="admin-section">
+  <div class="admin-container">
+    <div class="admin-col">
+      <div class="admin-div">
+        <h2 class="admin-h2">Login</h2>
+        <p class="admin-p">Please enter your login and password!</p>
+      <form action="{{ url_for('admin_.admin_login') }}" method="post">
+         {{form.hidden_tag()}}
+        <div class="admin-form">
+         {{ form.username.label }}
+         {{ form.username(class="admin-input", placeholder="Username:" ) }}
+        </div>
+
+        <div class="admin-form">
+         {{ form.password.label }}
+         {{ form.password(class="admin-input", placeholder="Password:" ) }}
+        </div>
+
+        <p class="admin-small">
+          <a class="admin-a" href="#!">Forgot password?</a>
+        </p>
+
+        <button class="admin-button" type="submit">Login</button>
+      </div>
+      </form>
+      <div class="admin-div">
+        <p class="admin-p">
+          Don't have an account?
+          <a href="{{ url_for('admin_.admin_register') }}" class="admin-a-bold">Sign Up</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+     

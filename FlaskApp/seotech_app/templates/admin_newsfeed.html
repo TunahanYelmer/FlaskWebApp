@@ -1,0 +1,26 @@
+{% extends "admin_base.html" %}
+{% block content %}
+    
+    <section class="admin-news-section">
+        <div class="admin-container">
+          <div class="admin-col">
+            <div class="admin-div">
+              <h2 class="admin-h2">Send Email</h2>
+              <form action="{{url_for('admin_.admin_newsfeed')}}" method="post">
+                {{form.hidden_tag()}}
+                <div>
+                   {{form.email.label}} {{form.email}}
+                   </div>
+                   <div>
+                   {{form.subject.label}} {{form.subject}}
+                   </div>
+                   <div>
+                   {{form.message.label}} {{form.message}}
+                   </div>
+                   <div>
+                   <button type="submit">Send Message</button>
+               </form>
+          </div>
+        </div>
+      </section>
+{% endblock %}
