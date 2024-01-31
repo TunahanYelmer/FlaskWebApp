@@ -61,8 +61,8 @@ class Slider:
             "title": self.title,
             "description": self.description,
             "contact_link": self.contact_link,
-            "image": self.image,
             "quote_link": self.quote_link,
+            "image": self.image,
         }
         slider_collection.insert_one(slider_data)
 

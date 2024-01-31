@@ -53,6 +53,7 @@ from functools import wraps
 from bson import ObjectId
 from mailjet_rest import Client
 
+
 admin_ = Blueprint("admin_", __name__)
 
 
@@ -170,6 +171,7 @@ mail_api_key = os.environ.get("MAIL_API_KEY")
 mail_api_secret_key = os.environ.get("MAIL_API_SECRET_KEY")
 
 
+
 mailjet = Client(auth=(mail_api_key, mail_api_secret_key), version="v3.1")
 
 
@@ -191,11 +193,11 @@ def admin_newsfeed():
         message = form.message.data  # message to send
 
         # If email field is empty, send to all emails
-        if not email:
+        if email=="":
             for email in all_emails:
-                send_email(sender_name,email, subject, message)
+                send_email(email, subject, message)
         else:
-            send_email(sender_name,email,  subject, message)
+            send_email(email,  subject, message)
 
     return render_template(
         "admin_newsfeed.html",
@@ -203,11 +205,12 @@ def admin_newsfeed():
     )
 
 
-def send_email(sender, email, subject, message):
+def send_email(email, subject, message):
+    mailjet = Client(auth=(mail_api_key, mail_api_secret_key), version="v3.1")
     data = {
         "Messages": [
             {
-                "From": {"Email": sender},  # Fix here: Removed extra curly braces
+                "From": {"Email": "tunahanyelmer@gmail.com"},  # Fix here: Removed extra curly braces
                 "To": [{"Email": email, "Name": "Recipient's Name"}],
                 "Subject": subject,
                 "TextPart": message,
@@ -381,14 +384,15 @@ def admin_content_update_slider():
         slider_form_quote_link = form.quote_link.data
         image = form.image.data
         filename = secure_filename(image.filename)
-        image.save(os.path.join(app.static_folder, filename))
+        subfolder_path = os.path.join(app.static_folder, 'images')
+        image.save(os.path.join(subfolder_path, filename))
         slider_form_image = filename
         slider = Slider(
             slider_form_title,
             slider_form_description,
-            filename,
             slider_contact_link,
             slider_form_quote_link,
+            filename,
             mongo,
         )
         slider.save()
@@ -420,7 +424,8 @@ def admin_content_update_about():
         about_form_read = form.read.data
         image = form.image.data
         filename = secure_filename(image.filename)
-        image.save(os.path.join(app.static_folder, filename))
+        subfolder_path = os.path.join(app.static_folder, 'images')
+        image.save(os.path.join(subfolder_path, filename))
 
         about = About(
             about_form_title, about_form_description, about_form_read, filename, mongo
@@ -456,7 +461,8 @@ def admin_content_update_team():
         team_form_link_insta = form.link_insta.data
         image = form.image.data
         filename = secure_filename(image.filename)
-        image.save(os.path.join(app.static_folder, filename))
+        subfolder_path = os.path.join(app.static_folder, 'images')
+        image.save(os.path.join(subfolder_path, filename))
 
         team = Team(
             team_form_title,
@@ -519,7 +525,8 @@ def admin_content_update_service():
         service_form_read = form.read.data
         image = form.image.data
         filename = secure_filename(image.filename)
-        image.save(os.path.join(app.static_folder, filename))
+        subfolder_path = os.path.join(app.static_folder, 'images')
+        image.save(os.path.join(subfolder_path, filename))
         service = Service(
             service_form_title,
             service_form_description,
@@ -559,7 +566,8 @@ def admin_content_update_work():
         work_form_read = form.read.data
         image = form.image.data
         filename = secure_filename(image.filename)
-        image.save(os.path.join(app.static_folder, filename))
+        subfolder_path = os.path.join(app.static_folder, 'images')
+        image.save(os.path.join(subfolder_path, filename))
 
         work = Work(
             work_form_title,
@@ -634,7 +642,8 @@ def admin_content_update_client():
         client_form_read = form.read.data
         image = form.image.data
         filename = secure_filename(image.filename)
-        image.save(os.path.join(app.static_folder, filename))
+        subfolder_path = os.path.join(app.static_folder, 'images')
+        image.save(os.path.join(subfolder_path, filename))
 
         client = Clients(
             client_form_title,

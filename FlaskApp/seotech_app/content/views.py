@@ -32,8 +32,9 @@ def home():
                 "title": slider.get("title"),
                 "description": slider.get("description"),
                 "contact_link": slider.get("contact_link"),
-                "image": slider.get("image"),
                 "quote_link": slider.get("quote_link"),
+                "image": slider.get("image"),
+                
             }
         )
     print(slider_data)
